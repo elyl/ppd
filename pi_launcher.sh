@@ -17,15 +17,13 @@ do
     ./pi.sh $START $END >> pi.part&
 #    i=$((i +1))
 done
-sleep 2
+sleep 5
 
-PI=$(cat pi.part)
+values=`cat pi.part`
 result=0
 
-for n in $PI
+for n in $values
 do
-    echo $n
-#    echo $result
     result=$(echo "scale=10;$result+$n" | bc)
 done
 
