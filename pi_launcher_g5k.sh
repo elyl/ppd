@@ -6,7 +6,7 @@ nb_machines=`cat $OAR_FILE_NODES | uniq |wc -l`
 STEP=$((1000 / $nb_machines))
 i=1
 
-for m in $machines; do
+for m in $machines
 do
     START=$(echo "$STEP*($i-1)" | bc)
     END=$((STEP * $i ))
