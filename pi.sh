@@ -1,7 +1,7 @@
 #!/bin/bash
 
-START=$(echo "$1*100" | bc)
-END=$(echo "$START+100" | bc)
+START=$1
+END=$2
 SCALE=10
 
 i=0
