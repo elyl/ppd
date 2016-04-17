@@ -12,23 +12,22 @@ for i in `seq 1 100`
 do
     START=$(echo "$STEP*($i-1)" | bc)
     END=$((STEP * $i ))
-    #oarsh $m pi.sh $START $END > pi.part$i&
     echo "launching on $i"
-    ./pi.sh $START $END > pi.part$i&
+    #oarsh $m pi.sh $START $END >> pi.part&
+    ./pi.sh $START $END >> pi.part&
 #    i=$((i +1))
 done
 sleep 2
 
-FILES=`ls pi.part*`
+PI=$(cat pi.part)
 result=0
 
-for f in $FILES
+for n in $PI
 do
-    n=$(cat $f)
     echo $n
-    echo $result
+#    echo $result
     result=$(echo "scale=10;$result+$n" | bc)
-#    rm $f
 done
 
+rm pi.part
 echo $result > pi
