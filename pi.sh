@@ -4,7 +4,6 @@ START=$1
 END=$2
 SCALE=10
 
-i=0
 n=0
 
 for i in `seq $START $END`

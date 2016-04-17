@@ -1,14 +1,18 @@
 #!/bin/bash
 
-STEP=100
+machines=`cat $OAR_FILE_NODES | uniq`
+nb_machines=`cat $OAR_FILE_NODES | uniq |wc -l`
+
+STEP=$((1000 / $nb_machines))
 i=1
 
-for i in `seq 1 100`
+for m in $machines; do
 do
     START=$(echo "$STEP*($i-1)" | bc)
     END=$((STEP * $i ))
     echo "launching on $i with $START and $END"
-    ./pi.sh $START $END >> pi.part&
+    oarsh $m pi.sh $START $END >> pi.part&
+    i=$((i +1))
 done
 sleep 5
 
