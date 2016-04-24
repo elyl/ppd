@@ -1,0 +1,22 @@
+NOTES:
+- Impossible de modifier les fichiers ou de reserver un noeud depuis la plate-forme access.
+- Home replique sur toutes les machines
+- Possible de reserver et consulter les stats depuis la plate-forme locale (Lille...)
+- oarstat donne la liste des jobs en cours avec leur nom, le nom de la personne qui a effectué la reservation ainsi que la date de la reservation
+- oarsh peut executer la commande sur une machine de la grille
+- Les machines reservees sont indiquees dans la variable OAR_FILE_NODES
+- element etrange : impossible de trouver un job avec le username mais il apparait bien avec le numero de job. un copier/coller de l'username affiche par oarstat ne donne aucun resultat non plus, eliminant de facto la faute de frappe.
+- La reservation de plusieurs nodes sur lille donne generalement une seule et meme machine
+
+mesure de temps effectuees:
+Un seul node avec un nombre d'iterations variant de 100 à 10000 avec un pas de 100.
+Conclusion -> Le temps d'execution est strictement croissant avec l'augmentation du nombre d'iterations. Resultat totalement previsible et sans grand interet.
+
+10000 iterations sur un nombre de node allant de 1 à 10
+conslusion -> Le temps d'execution est strictement decroissant avec l'augmentation du nombre de coeurs. On remarque qu'il est pratiquement proportionel au nombre de coeurs ce qui signifie que le cout de communication est négligeable par rapport au calcul.
+
+Pas de courbes pour le moment, données mal formatées
+
+HADDOP:
+La commande bien bin/hdfs dfs -cat output/* ne fonctionne pas
+La sortie dans le dossier ouput ne semble pas bonne, les données n'ayant pas particulierement de sens pour un humain et ressemblant plus a des fichiers temporaires d'application
