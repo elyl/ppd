@@ -3,7 +3,9 @@
 machines=`cat $OAR_FILE_NODES | uniq`
 nb_machines=`cat $OAR_FILE_NODES | uniq |wc -l`
 
-STEP=$((1000 / $nb_machines))
+TOTAL=$1
+
+STEP=$(($1 / $nb_machines))
 i=1
 
 for m in $machines
@@ -11,10 +13,11 @@ do
     START=$(echo "$STEP*($i-1)" | bc)
     END=$((STEP * $i ))
     echo "launching on $i with $START and $END"
-    oarsh $m pi.sh $START $END >> pi.part&
+    oarsh $m /home/alheureux/ppd/pi.sh $START $END >> pi.part&
     i=$((i +1))
 done
-sleep 5
+
+wait
 
 values=`cat pi.part`
 result=0
