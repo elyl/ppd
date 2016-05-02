@@ -1,3 +1,5 @@
+-- Axel LHEUREUX
+
 NOTES:
 - Impossible de modifier les fichiers ou de reserver un noeud depuis la plate-forme access.
 - Home replique sur toutes les machines
@@ -15,8 +17,8 @@ Conclusion -> Le temps d'execution est strictement croissant avec l'augmentation
 10000 iterations sur un nombre de node allant de 1 à 10
 conslusion -> Le temps d'execution est strictement decroissant avec l'augmentation du nombre de coeurs. On remarque qu'il est pratiquement proportionel au nombre de coeurs ce qui signifie que le cout de communication est négligeable par rapport au calcul.
 
-Pas de courbes pour le moment, données mal formatées
+Les courbes de temps d'execution sont les fichiers "singe-core.png" et "multicore.png" respectivement pour un nombre d'itrations variable sur un seul coeur et un nombre d'iterations fixe sur plusieurs coeurs"
 
 HADDOP:
-La commande bien bin/hdfs dfs -cat output/* ne fonctionne pas
-La sortie dans le dossier ouput ne semble pas bonne, les données n'ayant pas particulierement de sens pour un humain et ressemblant plus a des fichiers temporaires d'application
+La sortie dans le dossier ouput ne semble pas bonne, les données n'ayant pas particulierement de sens pour un humain et ressemblant plus a des fichiers temporaires d'application.
+Impossible d'acceder a localhost:8080 apres avoir lance YARN, impossible de poursuivre le TP.
